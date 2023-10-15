@@ -36,7 +36,9 @@ class shortcutJS{
 	bind(key, func, shift=NO_SHIFT||[NO_SHIFT], ctrl=CTRL||[CTRL]){
 		if(typeof func==='function'||Array.isArray(func)){
 			if(typeof key==='string'||typeof key==='number'){
-				key = key.substr(0,1);
+				if(typeof key==='number')
+					key = String.fromCharCode(key).toLowerCase();
+				key = key.toLowerCase().substr(0,1);
 				this.keyBind[key] = {'shift':shift,'ctrl':ctrl, 'func':func};
 				return true;
 			}else if(Array.isArray(key)){
