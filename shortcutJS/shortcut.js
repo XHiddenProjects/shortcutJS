@@ -38,6 +38,7 @@ class shortcutJS{
 			if(typeof key==='string'||typeof key==='number'){
 				key = key.substr(0,1);
 				this.keyBind[key] = {'shift':shift,'ctrl':ctrl, 'func':func};
+				return true;
 			}else if(Array.isArray(key)){
 				for(let i=0;i<key.length;i++){
 					key[i] = key[i].substr(0,1);
