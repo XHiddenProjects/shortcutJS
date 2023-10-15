@@ -32,7 +32,7 @@ sc.unbind(keyName);
 make sure you unbind it before _creating a listener_
 
 ## stripping
-This is for security tool that prevents any XSS injection onto the software, It takes a long string and splits in and returns into on character.
+This is for security tool that prevents any XSS injection onto the software, It takes a long string and splits in and returns into one character.
 
 Example:
 `"<h1>" (before striped) -> "<" (after stripped)`
