@@ -73,11 +73,48 @@ class shortcutJS{
 			return false;
 		}
 	}
+	setDesc(key, desc=''){
+		if(this.keyBind[key]){
+			this.keyBind[key].desc = desc;
+		}else{
+			console.error(key+' doesn`t have a set value');
+			return false;
+		}
+	}
+	remDesc(key){
+		if(this.keyBind[key].desc){
+			return delete this.keyBind[key].desc;
+		}else{
+			console.error(key+' doesn`t have a set description');
+			return false;
+		}
+	}
 	strip(str){
 		return str.split('')[0];
 	}
-	get(isKeyBind=true){
+	get(){
 		return this.keyBind;
+	}
+	showList(elem){
+		let x = document.querySelector(elem);
+		if(x){
+			x.classList.add('scList');
+			let style = document.createElement('style');
+			style.innerHTML = '.scList .cmd{float:right;font-weight:bold;font-style:italic;color:#7a7878;}';
+			document.head.appendChild(style);
+			let obj = Object.entries(this.keyBind);
+			let List = document.createElement('ul');
+			for(let i=0;i<obj.length;i++){
+				let L = document.createElement('li');
+				L.innerHTML+='<span class="desc">'+(obj[i][1].desc ? obj[i][1].desc : '')+'</span> ';
+				L.innerHTML+='<span class="cmd">'+(obj[i][1].ctrl ? 'CTRL+' : '')+(obj[i][1].shift ? 'Shift+' : '')+obj[i][0]+'</span>';
+				List.appendChild(L);
+			}	
+			x.appendChild(List);
+		}else{
+			console.log(elem+' does not exists');
+			return false;
+		}
 	}
 }
 export {shortcutJS, SHIFT, CTRL, NO_SHIFT, NO_CTRL} 
