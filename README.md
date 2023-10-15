@@ -47,3 +47,16 @@ To return the list of keybinds, you would have to type this:
 ```js
 sc.get();//return JSON format of keyBinds
 ```
+
+## adding/removing descriptions
+To add a description, which can be usful to describe what the keybinds are, is to type this:
+```js
+sc.setDesc(key, desc='');//Set desc to description value
+```
+and to remove use:
+```js
+sc.remDesc(key);//Remove description off this key
+```
+
+## Show List
+To display the the list off keybinds and description make sure you target a `UL/OL` list, this will render out the list on that.
