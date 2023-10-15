@@ -19,11 +19,16 @@ class shortcutJS{
 					ifs+='event.key==="'+kL[tar][0]+'"';
 				if(typeof kL[tar][0]==='number')
 					ifs+='event.keyCode==='+kL[tar][0];
-				if(kL[tar][1].shift)
+				if(kL[tar][1].shift){
 					ifs+='&&event.shiftKey';
-				if(kL[tar][1].ctrl)
+				}else{
+					ifs+='&&!event.shiftKey';
+				}
+				if(kL[tar][1].ctrl){
 					ifs+='&&event.ctrlKey';
-				
+				}else{
+					ifs+='&&!event.ctrlKey';
+				}
 				if(eval(ifs)){
 					event.preventDefault();
 					kL[tar][1].func();
