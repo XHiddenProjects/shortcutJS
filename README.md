@@ -60,3 +60,9 @@ sc.remDesc(key);//Remove description off this key
 
 ## Show List
 To display the the list off keybinds and description make sure you target a `UL/OL` list, this will render out the list on that.
+
+Type:
+```js
+sc.showList(elem, clsLst='');// clsLst can be a string/array
+```
+
