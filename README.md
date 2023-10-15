@@ -66,3 +66,10 @@ Type:
 sc.showList(elem, clsLst='');// clsLst can be a string/array
 ```
 
+## Actions
+| VARIABLE | UI_VAR | OUTPUT | DESCRIPTION |
+| -------- | ------ | ------ | ----------- |
+| SHIFT    | *.SHIFT | TRUE | Sets ShiftKey true |
+| CTRL     | *.CTRL | TRUE | Sets CtrlKey to true |
+| NO_SHIFT | *.NO_SHIFT | FALSE | Sets ShiftKey to false |
+| NO_CTRL  | *.NO_CTRL | FALSE | Sets CtrlKey to false |
