@@ -95,24 +95,27 @@ class shortcutJS{
 	get(){
 		return this.keyBind;
 	}
-	showList(elem){
+	showList(elem, clsLst=''){
 		let x = document.querySelector(elem);
-		if(x){
+		if(x&&x.tagName.toLowerCase()==='ol'||x.tagName.toLowerCase()==='ul'){
 			x.classList.add('scList');
 			let style = document.createElement('style');
 			style.innerHTML = '.scList .cmd{float:right;font-weight:bold;font-style:italic;color:#7a7878;}';
 			document.head.appendChild(style);
 			let obj = Object.entries(this.keyBind);
-			let List = document.createElement('ul');
 			for(let i=0;i<obj.length;i++){
 				let L = document.createElement('li');
+				if(Array.isArray(clsLst)){
+					L.classList.add(clsLst[i]);
+				}else{
+					L.classList.add(clsLst);
+				}
 				L.innerHTML+='<span class="desc">'+(obj[i][1].desc ? obj[i][1].desc : '')+'</span> ';
 				L.innerHTML+='<span class="cmd">'+(obj[i][1].ctrl ? 'CTRL+' : '')+(obj[i][1].shift ? 'Shift+' : '')+obj[i][0]+'</span>';
-				List.appendChild(L);
+				x.appendChild(List);
 			}	
-			x.appendChild(List);
 		}else{
-			console.log(elem+' does not exists');
+			console.error(elem+' does not exists or element is not OL/UL!');
 			return false;
 		}
 	}
