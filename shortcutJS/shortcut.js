@@ -35,15 +35,15 @@ class shortcutJS{
 	}
 	bind(key, func, shift=NO_SHIFT||[NO_SHIFT], ctrl=CTRL||[CTRL]){
 		if(typeof func==='function'||Array.isArray(func)){
-			if(typeof key==='string'||typeof key==='number'){
-				if(typeof key==='number')
-					key = String.fromCharCode(key).toLowerCase();
-				key = key.toLowerCase().substr(0,1);
+			
+			/*KeyValue*/
+			if(typeof key==='string'){
+				key = key.substr(0,15);
 				this.keyBind[key] = {'shift':shift,'ctrl':ctrl, 'func':func};
 				return true;
 			}else if(Array.isArray(key)){
 				for(let i=0;i<key.length;i++){
-					key[i] = key[i].substr(0,1);
+					key[i] = key[i].substr(0,15);
 					if(typeof func[i]==='function'){
 						if(typeof key[i]==='string'||typeof key[i]==='number'){
 							this.keyBind[key[i]] = {'shift':shift[i],'ctrl':ctrl[i], 'func':func[i]};
@@ -58,7 +58,7 @@ class shortcutJS{
 				}
 				return true;
 			}else{
-				console.error(key+' must be a string|number|array');
+				console.error(key+' must be a string|array');
 				this.r = false;
 			}
 		}else{
@@ -92,7 +92,12 @@ class shortcutJS{
 		}
 	}
 	strip(str){
-		return str.split('')[0];
+		let cm = '';
+		for(let i=0;i<str.split('').length;i++){
+			if(i<=15)
+				cm+=str.split('')[i];
+		}
+		return cm;
 	}
 	get(){
 		return this.keyBind;
