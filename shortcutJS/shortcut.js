@@ -107,12 +107,14 @@ class shortcutJS{
 				let L = document.createElement('li');
 				if(Array.isArray(clsLst)){
 					L.classList.add(clsLst[i]);
-				}else{
+				}else if(clsLst!==''){
 					L.classList.add(clsLst);
+				}else{
+					L.className = '';
 				}
 				L.innerHTML+='<span class="desc">'+(obj[i][1].desc ? obj[i][1].desc : '')+'</span> ';
 				L.innerHTML+='<span class="cmd">'+(obj[i][1].ctrl ? 'CTRL+' : '')+(obj[i][1].shift ? 'Shift+' : '')+obj[i][0]+'</span>';
-				x.appendChild(List);
+				x.appendChild(L);
 			}	
 		}else{
 			console.error(elem+' does not exists or element is not OL/UL!');
