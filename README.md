@@ -14,8 +14,8 @@ To execute the code, you can add multiple/singler by using array/string.
 **NOTE: String will only executing once and cannot be added on.**
 
 ```js
-const t1 = sc.bind('g',function(){console.log('New Tab');},s.NO_SHIFT,s.CTRL); //Loads an event with the key of "g"+ctrlKey
-const t2 = sc.bind(['g','s'],[function(){console.log('New Tab');},function(){console.log("Saved")}],[s.NO_SHIFT, s.NO_SHIFT],[s.CTRL, s.CTRL]); //Loads multiple events of key of "g"+ctrlKey and "s"+ctrlKey
+const t1 = sc.bind('g',function(){console.log('New Tab');},s.NO_SHIFT,s.CTRL, S.NO_ALT); //Loads an event with the key of "g"+ctrlKey
+const t2 = sc.bind(['g','s'],[function(){console.log('New Tab');},function(){console.log("Saved")}],[s.NO_SHIFT, s.NO_SHIFT],[s.CTRL, s.CTRL], [s.NO_ALT, s.NO_ALT]); //Loads multiple events of key of "g"+ctrlKey and "s"+ctrlKey
 ```
 
 ## activate events
@@ -71,5 +71,7 @@ sc.showList(elem, clsLst='');// clsLst can be a string/array
 | -------- | ------ | ------ | ----------- |
 | SHIFT    | *.SHIFT | TRUE | Sets ShiftKey true |
 | CTRL     | *.CTRL | TRUE | Sets CtrlKey to true |
+| ALT      | *.ALT  | TRUE | Sets AltKey to true |
 | NO_SHIFT | *.NO_SHIFT | FALSE | Sets ShiftKey to false |
 | NO_CTRL  | *.NO_CTRL | FALSE | Sets CtrlKey to false |
+| NO_ALT   | *.NO_ALT  | FALSE | Sets AltKey to false |
