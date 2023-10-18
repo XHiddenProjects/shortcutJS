@@ -1,7 +1,9 @@
 const SHIFT = true;
 const CTRL = true;
+const ALT = true;
 const NO_SHIFT = false;
 const NO_CTRL = false;
+const NO_ALT = false;
 var kL = [];
 var IFs = '';
 var tar = 0;
@@ -29,6 +31,11 @@ class shortcutJS{
 				}else{
 					ifs+='&&!event.ctrlKey';
 				}
+				if(kL[tar][1].alt){
+					ifs+='&&event.altKey';
+				}else{
+					ifs+='&&!event.altKey';
+				}
 				if(eval(ifs)){
 					event.preventDefault();
 					kL[tar][1].func();
@@ -38,20 +45,19 @@ class shortcutJS{
 			});
 		}
 	}
-	bind(key, func, shift=NO_SHIFT||[NO_SHIFT], ctrl=CTRL||[CTRL]){
+	bind(key, func, shift=NO_SHIFT||[NO_SHIFT], ctrl=CTRL||[CTRL], alt=ALT||[ALT]){
 		if(typeof func==='function'||Array.isArray(func)){
-			
 			/*KeyValue*/
 			if(typeof key==='string'){
 				key = key.substr(0,15);
-				this.keyBind[key] = {'shift':shift,'ctrl':ctrl, 'func':func};
+				this.keyBind[key] = {'shift':shift,'ctrl':ctrl, 'alt':alt ,'func':func};
 				return true;
 			}else if(Array.isArray(key)){
 				for(let i=0;i<key.length;i++){
 					key[i] = key[i].substr(0,15);
 					if(typeof func[i]==='function'){
 						if(typeof key[i]==='string'||typeof key[i]==='number'){
-							this.keyBind[key[i]] = {'shift':shift[i],'ctrl':ctrl[i], 'func':func[i]};
+							this.keyBind[key[i]] = {'shift':shift[i],'ctrl':ctrl[i], 'alt':alt[i], 'func':func[i]};
 						}else{
 							console.error(key[i]+' must be a function');
 							return false;
@@ -125,7 +131,7 @@ class shortcutJS{
 					L.className = '';
 				}
 				L.innerHTML+='<span class="desc">'+(obj[i][1].desc ? obj[i][1].desc : '')+'</span> ';
-				L.innerHTML+='<span class="cmd">'+(obj[i][1].ctrl ? 'CTRL+' : '')+(obj[i][1].shift ? 'Shift+' : '')+obj[i][0]+'</span>';
+				L.innerHTML+='<span class="cmd">'+(obj[i][1].alt ? 'ALT+' : '')+(obj[i][1].ctrl ? 'CTRL+' : '')+(obj[i][1].shift ? 'Shift+' : '')+obj[i][0]+'</span>';
 				x.appendChild(L);
 			}	
 		}else{
@@ -134,4 +140,4 @@ class shortcutJS{
 		}
 	}
 }
-export {shortcutJS, SHIFT, CTRL, NO_SHIFT, NO_CTRL} 
+export {shortcutJS, SHIFT, CTRL, ALT, NO_SHIFT, NO_CTRL, NO_ALT} 
