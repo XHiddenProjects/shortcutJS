@@ -118,7 +118,7 @@ class shortcutJS{
 		if(x&&x.tagName.toLowerCase()==='ol'||x.tagName.toLowerCase()==='ul'){
 			x.classList.add('scList');
 			let style = document.createElement('style');
-			style.innerHTML = '.scList .cmd{float:right;font-weight:bold;font-style:italic;color:#7a7878;}';
+			style.innerHTML = '.scList li{margin: 1em;} .scList .cmd{float:right;font-weight:bold;font-style:italic;color:#7a7878;}';
 			document.head.appendChild(style);
 			let obj = Object.entries(this.keyBind);
 			for(let i=0;i<obj.length;i++){
