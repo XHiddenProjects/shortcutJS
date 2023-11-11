@@ -29,6 +29,12 @@ If you want to remove a bind from existence you would have to unbind it, type:
 ```js
 sc.unbind(keyName);
 ```
+## update events
+If you want to update a kind bind type:
+```js
+sc.update(oldKey, newKey);
+```
+
 make sure you unbind it before _creating a listener_
 
 ## stripping
