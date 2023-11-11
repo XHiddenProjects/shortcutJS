@@ -1,3 +1,8 @@
+/*
+@Author XHiddenProjects
+@Version 1.0.6
+@Updated 11/11/23
+*/
 const SHIFT = true;
 const CTRL = true;
 const ALT = true;
@@ -86,6 +91,10 @@ class shortcutJS{
 			return false;
 		}
 	}
+	update(oldKey, newKey){
+		this.keyBind[newKey] = this.keyBind[oldKey];
+		return delete this.keyBind[oldKey];
+	}
 	setDesc(key, desc=''){
 		if(this.keyBind[key]){
 			this.keyBind[key].desc = desc;
@@ -118,7 +127,7 @@ class shortcutJS{
 		if(x&&x.tagName.toLowerCase()==='ol'||x.tagName.toLowerCase()==='ul'){
 			x.classList.add('scList');
 			let style = document.createElement('style');
-			style.innerHTML = '.scList li{margin: 1em;} .scList .cmd{float:right;font-weight:bold;font-style:italic;color:#7a7878;}';
+			style.innerHTML = '.scList .cmd{float:right;font-weight:bold;font-style:italic;color:#7a7878;}';
 			document.head.appendChild(style);
 			let obj = Object.entries(this.keyBind);
 			for(let i=0;i<obj.length;i++){
