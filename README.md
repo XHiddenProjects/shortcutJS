@@ -12,14 +12,14 @@ To execute the code, you can add multiple/singler by using array/string.
 **NOTE: String will only executing once and cannot be added on.**
 
 ```js
-const t1 = sc.bind('g',function(){console.log('New Tab');},s.NO_SHIFT,s.CTRL, S.NO_ALT); //Loads an event with the key of "g"+ctrlKey
-const t2 = sc.bind(['g','s'],[function(){console.log('New Tab');},function(){console.log("Saved")}],[s.NO_SHIFT, s.NO_SHIFT],[s.CTRL, s.CTRL], [s.NO_ALT, s.NO_ALT]); //Loads multiple events of key of "g"+ctrlKey and "s"+ctrlKey
+const t1 = sc.bind('g',function(){console.log('New Tab');},false,false, false); //Loads an event with the key of "g"+ctrlKey. SHIFT:false, CTRL:false, ALT:false
+const t2 = sc.bind(['g','s'],[function(){console.log('New Tab');},function(){console.log("Saved")}],[false, false],[true, true], [false, false]); //Loads multiple events of key of "g"+ctrlKey and "s"+ctrlKey. SHIFT:false, CTRL:true, ALT:false
 ```
 
 ## activate events
 To activate the events, you must create a listener, by typing:
 ```js
-sc.createListener(); //Combines array "binds" and single "binds" with key events
+sc.createListener(target=window); //Combines array "binds" and single "binds" with key events, you can change the target of the action, default "window"
 ```
 
 ## unbind events
