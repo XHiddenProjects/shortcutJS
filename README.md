@@ -4,9 +4,7 @@ A JS library that allows users to create shortcuts
 ## Install
 Import code by using this, you can use `.min` or not
 ```js
-import * as s from './shortcut.min.js';
-//Loaded
-let sc = new s.shortcutJS();
+let sc = new shortcutJS();
 ```
 ## Executing
 To execute the code, you can add multiple/singler by using array/string. 
