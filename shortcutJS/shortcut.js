@@ -17,10 +17,10 @@ class shortcutJS{
 		this.keyBind = {};
 		this.r = true;
 	}
-	createListener(){
+	createListener(obj=window){
 		kL = Object.entries(this.keyBind);
 		for(let i=0;i<kL.length;i++){
-			window.addEventListener('keydown', function(event, tar=i){
+			obj.addEventListener('keydown', function(event, tar=i){
 				let ifs = '';
 				if(typeof kL[tar][0]==='string')
 					ifs+='event.key==="'+kL[tar][0]+'"';
