@@ -47,7 +47,7 @@ class shortcutJS{
 					return false;
 				}
 				ifs='';
-			});
+			},true);
 		}
 	}
 	bind(key, func, shift=NO_SHIFT||[NO_SHIFT], ctrl=CTRL||[CTRL], alt=ALT||[ALT]){
