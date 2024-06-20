@@ -1,6 +1,6 @@
 /*
 @Author XHiddenProjects
-@Version 1.1.1
+@Version 1.1.2
 @Updated 02/23/24
 */
 const SHIFT = true;
@@ -149,3 +149,5 @@ class shortcutJS{
 		}
 	}
 }
+
+export {shortcutJS, SHIFT, CTRL, ALT, NO_SHIFT, NO_CTRL, NO_ALT};
