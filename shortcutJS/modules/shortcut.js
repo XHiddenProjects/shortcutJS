@@ -1,7 +1,7 @@
 /*
 @Author XHiddenProjects
 @Version 1.1.2
-@Updated 02/23/24
+@Updated 06/19/24
 */
 const SHIFT = true;
 const CTRL = true;
